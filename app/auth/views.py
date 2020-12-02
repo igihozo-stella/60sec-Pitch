@@ -2,7 +2,7 @@ from flask import current_app as app
 from flask import render_template,redirect, request, url_for,flash, abort
 from . import auth
 from flask_login import login_user, login_required, current_user
-from flask_user import UserManager, roles_required
+# from flask_user import UserManager, roles_required
 from ..email import mail_message
 from datetime import datetime
 from flask_mail import Message
@@ -119,4 +119,4 @@ def admin():
     if current_user.is_authenticated:
         return redirect (url_for('main.index'))
 
-    return render_template('auth/auth_login.html', login_form=login_form)
+    return render_template('admin_login.html', login_form=login_form)

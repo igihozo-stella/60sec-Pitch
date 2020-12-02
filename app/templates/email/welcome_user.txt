@@ -1,0 +1,5 @@
+Hey there {{user.username}}
+
+Welcome to 60sec-Pitch!
+
+Thank you for signing on our amazing site.Welcome enjoy yourself!..

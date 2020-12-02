@@ -2,7 +2,7 @@ from .import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import current_app as app
 from flask_login import UserMixin
-from flask_user import UserManager
+# from flask_user import UserManager
 from datetime import datetime
 
 class User(db.Model,UserMixin):
@@ -30,9 +30,9 @@ class User(db.Model,UserMixin):
     def verify_password(self, password):
             return check_password_hash(self.password_hash, password)
 
-    @login_manager.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
+    # @login_manager.user_loader
+    # def load_user(user_id):
+    #     return User.query.get(int(user_id))
 
     def has_roles(self, *args):
         return set(args).issubset({ role.role_name for role in self.role})
@@ -48,14 +48,14 @@ class Role(db.Model):
     role_name = db.Column(db.String(255))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
- class UserRoles(db.Model):
+class UserRoles(db.Model):
     __tablename__ = 'user_roles'   
 
     id = db.Column(db.Integer, primary_key = True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
-user_manager = UserManager(app, db, User)
+# user_manager = UserManager(app, db, User)
 class Post(db.Model):
     __tablename__ = 'posts'
 
@@ -68,11 +68,11 @@ class Post(db.Model):
     time_updated = db.Column(db.DateTime(), default = datetime.utcnow, onupdate=datetime.utcnow)
 
 @classmethod
-    def get_posts(cls):
-        posts = Post.query.all()
-        response = []
-        response.append(posts)
-        return response
+def get_posts(cls):
+    posts = Post.query.all()
+    response = []
+    response.append(posts)
+    return response
 
 class Comment(db.Model):
     __tablename__ = 'comments'
