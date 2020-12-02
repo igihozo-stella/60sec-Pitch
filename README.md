@@ -5,10 +5,10 @@
 Igihozo stella 
 
 ## Setup requirements
-- Run git clone https://github.com/kamauvick/1m-Pitch.git
+- Run git clone https://github.com/igihozo-stella/60sec-Pitch.git
 - Create a virtual environment
 - Activate the virtual environment use this command 'source virtual/bin/activate'
-- Running the application
+- Running the application using this command 'python3.6 manage.py server'
 
 
 ## Technologies used
