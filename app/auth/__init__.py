@@ -2,4 +2,4 @@ from flask import Blueprint
 
 auth = Blueprint('auth',__name__)
 
-from . import views,error,form
+from . import views,error,forms
