@@ -1,0 +1,51 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+    <div class="center-block well">
+        <label class="center-block"> POST </label>
+
+        {% with messages = get_flashed_messages(with_categories = true) %} 
+        
+            {% if messages %} 
+                {% for category, message in messages%}
+                    <div class="message text-center alert alert-{{category}} alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h3>{{ message }}</h3>
+                    </div>
+                {% endfor %} 
+            {% endif %} 
+        {% endwith %}
+
+        <form action="{{url_for('main.edit', post_id=post.id)}}" method="post">
+
+            {{ form.hidden_tag() }} 
+                {% for error in form.title.errors %} 
+                    {% if error %}
+                        <br>
+                        <span class="alert alert-danger" role="alert">
+                            <b>Please enter a title</b>
+                        </span>
+                    {% endif %} 
+                {% endfor %} 
+            {{form.title(class_="form-control",value=post.title)}} 
+            
+            {% for error in form.content.errors %} 
+            
+                {% if error %}
+                <br>
+                <span class="alert alert-danger" role="alert">
+                    {{error}}
+                    </b>
+                </span>
+                {% endif %} 
+            {% endfor %} 
+            
+            {{form.content(class_="form-control",id="text-line",default=post.content,rows='6')}} 
+            
+            {{form.submit(class_="btn btn-primary btn1 btn-p")}}
+        </form>
+    </div>
+{% endblock %}
