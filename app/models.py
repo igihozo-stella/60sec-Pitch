@@ -15,7 +15,7 @@ class User(db.Model,UserMixin):
     comment_id = db.relationship('Comment', backref='user_post', lazy='dynamic')
     role = db.relationship('Role', backref='user', lazy='dynamic')
     bio = db.Column(db.String(255))
-    profile_pic_path = db.Column(db.String()) 
+    # profile_pic_path = db.Column(db.String()) 
     
 
     @property

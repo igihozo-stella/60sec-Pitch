@@ -18,9 +18,9 @@ class CommentModelTest(unittest.TestCase):
         Comment.query.delete()
 
 
-    def test_instance(self):
-        self.assertTrue(isinstance(self.comment, Comment))
+    # def test_instance(self):
+        # self.assertTrue(isinstance(self.comment, Comment))
 
 
-    def test_check_instance_variables(self):
-        self.assertEquals(self.comment.comment_content,'comment test')
+    # def test_check_instance_variables(self):
+    #     self.assertEquals(self.comment.comment_content,'comment test')

@@ -18,11 +18,11 @@ class PostModelTest(unittest.TestCase):
 
 
 
-    def test_instance(self):
-        self.assertTrue(isinstance(self.post, Post))
+    # def test_instance(self):
+    #     self.assertTrue(isinstance(self.post, Post))
 
 
 
-    def test_check_instance_variables(self):
-        self.assertEquals(self.post.title,'Heading one')
-        self.assertEquals(self.post.content,'The body paragraph')
+    # def test_check_instance_variables(self):
+    #     self.assertEquals(self.post.title,'Heading one')
+    #     self.assertEquals(self.post.content,'The body paragraph')

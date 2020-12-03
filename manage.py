@@ -20,7 +20,7 @@ def test():
 	Run unit Tests
 	"""
 	import unittest
-	tests = unittest.TestLoader().discover('tests')
+	tests = unittest.TestLoader().discover('test')
 	unittest.TextTestRunner(verbosity=2).run(tests)
 
 @manager.shell
